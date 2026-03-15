@@ -1177,6 +1177,42 @@ nav a:hover {
         background: #fff; /* Sesuaikan dengan warna background footer Abang */
     }
 
+    /* Wrapper agar tombol bisa diatur posisinya di tengah grid */
+    .news-header {
+    /* Menambah jarak bawah agar judul/garis tidak nempel ke foto */
+    margin-bottom: 30px !important; 
+    }
+    .galeri-wrapper-utama {
+        position: relative; /* Wajib supaya overlay bisa diposisikan di dalamnya */
+    }
+    .overlay-lihat-semua {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(94, 84, 84, 0.6); /* Hijau transparan */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 24px;
+        font-weight: bold;
+        backdrop-filter: blur(0px); /* Efek kaca buram (glassy) */
+        z-index: 10;
+        transition: 0.4s;
+        opacity: 0; /* Awalnya sembunyi */
+    }
+
+    /* Biar muncul pas di-hover */
+    .galeri-wrapper-utama:hover .overlay-lihat-semua {
+        opacity: 1;
+    }
+
+    .overlay-lihat-semua:hover {
+        background: rgba(54, 99, 57, 0.8); /* Makin pekat pas di-hover */
+    }
     /* ========================================================= */
     /* 2. TAMPILAN GALERI (GRID)                                 */
     /* ========================================================= */
@@ -1229,6 +1265,16 @@ nav a:hover {
         max-width: 1200px;
         margin: 0 auto;
         padding: 20px;
+    }
+    /* 1. Mengubah warna teks GALERI KEGIATAN */
+    .news-header h2 {
+        color: #F5A623!important; /* Warna Hijau Pekat Parnas */
+        font-weight: bold !important;
+    }
+
+    /* 2. Mengubah warna garis di bawah judul */
+    .news-header .divider {
+        background-color: #1B5E20 !important; /* Warna Kuning/Oranye (Bisa diganti sesuai selera) */
     }
     .galeri-grid {
         display: flex;
