@@ -591,6 +591,20 @@ nav a:hover {
         height: 250px !important; /* Atur tinggi kartu biar proporsional */
         margin: 0 auto !important;
     }
+    .news-action {
+        display: flex !important;
+        justify-content: center !important; /* Tombol ke tengah */
+        margin-top: 30px !important; /* Kasih jarak dari kartu berita di atasnya */
+        padding: 0 20px !important;
+    }
+    .news-action .btn {
+        width: 100% !important; /* Tombol memanjang selebar layar HP */
+        max-width: 350px !important; /* Tapi jangan kepanjangan kalau di tablet */
+        padding: 12px !important;
+        font-size: 14px !important;
+        font-weight: bold !important;
+        text-align: center !important;
+    }
 
     /* HEADER POSISI & TOGGLE */
     .navbar { display: flex; justify-content: space-between; align-items: center; width: 100%; }
