@@ -484,7 +484,7 @@ nav a:hover {
     
     /* 1. MUNCULKAN KEMBALI LOGO AFILIASI DI HP */
     .logo-afiliasi { display: flex; gap: 10px; order: 2; margin-left: auto; margin-right: 15px; }
-    .logo-afiliasi img { height: 25px !important; }
+    .logo-afiliasi img { height: 28px !important; }
 
     /* KECILKAN HEADER DAN LOGO UTAMA DI HP */
     header.navbar {
@@ -609,6 +609,43 @@ nav a:hover {
     nav ul.nav-links.active li:nth-child(3) { transition-delay: 0.2s; }
     nav ul.nav-links.active li:nth-child(4) { transition-delay: 0.3s; }
     nav ul.nav-links.active li:nth-child(5) { transition-delay: 0.4s; }
+
+    /* ----------------------------------- */
+    /* 3. MERAPIKAN FOOTER DI LAYAR HP     */
+    /* ----------------------------------- */
+    
+    .site-footer {
+        display: flex !important;
+        flex-direction: column !important; /* Susun numpuk ke bawah */
+        align-items: center !important; /* Rata tengah semua */
+        justify-content: center !important;
+        text-align: center !important;
+        gap: 20px !important; /* Jarak antar blok (kiri, logo, kanan) */
+        padding: 30px 15px !important; /* Biar footernya ga terlalu mepet layar */
+    }
+
+    .footer-left {
+        display: flex !important;
+        flex-direction: column !important; /* Teks "follow" & ikon sosmed dibikin atas-bawah */
+        align-items: center !important;
+        gap: 10px !important;
+    }
+
+    .footer-sosmed {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 15px !important; /* Jarak antar ikon FB, IG, Tiktok, dll */
+    }
+
+    .footer-logo img {
+        height: 30px !important; /* Tinggi logo Parnas di footer, tinggal disesuaikan */
+        margin: 0 !important;
+    }
+
+    .footer-right p {
+        font-size: 12px !important; /* Teks copyright dikecilin dikit biar manis */
+        margin: 0 !important;
+    }
 }
 
 /* --- SECTION TENTANG SAYA ATAU PROFILE --- */
