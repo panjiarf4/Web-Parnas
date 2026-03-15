@@ -605,6 +605,24 @@ nav a:hover {
         font-weight: bold !important;
         text-align: center !important;
     }
+    /* 5. PENGATURAN GALERI FOTO (Biar rapi di HP) */
+    .galeri-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 15px !important;
+        padding: 20px !important;
+    }
+    .galeri-item {
+        width: 100% !important;
+        border-radius: 15px !important;
+        overflow: hidden !important;
+        height: 250px !important;
+    }
+    .galeri-item img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
 
     /* HEADER POSISI & TOGGLE */
     .navbar { display: flex; justify-content: space-between; align-items: center; width: 100%; }
@@ -693,7 +711,6 @@ nav a:hover {
         filter: blur(3px) !important; 
         pointer-events: none !important; 
     }
-
 
 
     /* ----------------------------------- */
@@ -1123,6 +1140,16 @@ nav a:hover {
     transform: translateY(-3px); /* Tombol naik dikit pas disentuh mouse */
     box-shadow: 0 8px 25px rgba(217, 156, 43, 0.4); /* Bayangan oranye muncul */
 }
+
+/* Tambahkan .galeri-section ke daftar transisi dan transform */
+    .hero, .news-section, .tentang-section, .aspirasi-section, .galeri-section, .site-footer {
+        transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease !important;
+    }
+
+    body:has(.nav-links.active) .galeri-section {
+        transform: translateX(-60%) !important;
+        filter: blur(3px) !important;
+    }
 
 /* --- RESPONSIF UNTUK LAYAR HP --- */
 @media (max-width: 768px) {

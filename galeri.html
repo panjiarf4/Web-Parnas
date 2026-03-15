@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="menu-overlay" id="menu-overlay"></div>
-<header class="navbar">
+<header class="navbar header-mini">
         <div class="logo">
             <a href="#"><img src="\assets\img\LOGO 2.png" alt="Logo Parnas Center" class="logo-parnas"></a>
         </div>
@@ -27,7 +27,7 @@
                 <li><a href="profil.html">PROFIL</a></li>
                 <li><a href="#">PROGRAM</a></li>
                 <li><a href="#">BERITA</a></li>
-                <li><a href="galeri.html">GALERI</a></li>
+                <li><a href="#">GALERI</a></li>
                 <li class="search-icon">
                     <a href="#"><i class="fas fa-search"></i></a>
                 </li>
@@ -42,80 +42,37 @@
         </div>
     </header>
 
-<section class="hero">
-    <div class="hero-bg-overlay"></div>
-    <div class="hero-bg-slideshow">
-        <img src="assets/img/foto 1.jpeg" alt="Background 1">
-        <img src="assets/img/foto 2.jpeg" alt="Background 2">
-        <img src="assets/img/foto 3.jpeg" alt="Background 3">
-        <img src="assets/img/foto 5.jpeg" alt="Background 4">
+<section id="galeri-section" class="galeri-section">
+    <div class="bg-lengkung"></div>
+
+    <div class="wrapper-tombol-kembali">
+        <a href="index.html" class="btn btn-kembali">
+            <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+        </a>
     </div>
-    
-    <div class="hero-container">    
-        <div class="hero-content">
-            <h1>
-                MENGABDI UNTUK <span class="text-orange">MASYARAKAT</span><br>
-                <span class="text-orange">MEMBANGUN</span> KOTA JAMBI
-            </h1>
-            
-            <div class="hero-buttons">
-                <a href="profil.html" class="btn btn-outline">TENTANG SAYA</a>
-                <a href="aspirasi.html" class="btn btn-solid">KIRIM ASPIRASI &#10095;</a>
-            </div>
-        </div>
 
-        <div class="hero-image">
-            <img src="assets/img/nanda ijo.png" alt="Foto M. Ananda Parnas">
-                        <div class="profile-info-desktop">
-                <h2 class="nama-tokoh">M. ANANDA PARNAS, S.I.KOM</h2>
-                <p class="jabatan-tokoh">Anggota DPRD Kota Jambi</p>
-            </div>
-
-            <div class="profile-info-mobile">
-                <h2 class="nama-tokoh">M. ANANDA PARNAS, S.I.KOM</h2>
-                <p class="jabatan-tokoh">Anggota DPRD Kota Jambi</p>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<section class="news-section">
+    <div class="galeri-container">
         <div class="news-header">
-            <h2>BERITA PARNAS</h2>
+            <h2>GALERI KEGIATAN</h2>
             <div class="divider"></div>
         </div>
 
-        <div class="news-grid">
-            <article class="news-card">
-                <img src="https://via.placeholder.com/400x300/1D5B21/FFFFFF?text=Foto+Berita+1" alt="Berita 1">
-                <div class="news-overlay">
-                    <h3 class="news-title">berita 1</h3>
-                    <p class="news-date">Maret 5, 2026</p>
-                </div>
-            </article>
-
-            <article class="news-card">
-                <img src="https://via.placeholder.com/400x300/1D5B21/FFFFFF?text=Foto+Berita+2" alt="Berita 2">
-                <div class="news-overlay">
-                    <h3 class="news-title">berita 2</h3>
-                    <p class="news-date">Maret 12, 2026</p>
-                </div>
-            </article>
-
-            <article class="news-card">
-                <img src="https://via.placeholder.com/400x300/1D5B21/FFFFFF?text=Foto+Berita+3" alt="Berita 3">
-                <div class="news-overlay">
-                    <h3 class="news-title">berita 3</h3>
-                    <p class="news-date">Maret 5, 2026</p>
-                </div>
-            </article>
+        <div class="galeri-grid">
+            <div class="galeri-item">
+                <img src="https://via.placeholder.com/400x400" alt="Kegiatan 1">
+                <div class="galeri-overlay"><span>Kegiatan A</span></div>
+            </div>
+            <div class="galeri-item">
+                <img src="https://via.placeholder.com/400x400" alt="Kegiatan 2">
+                <div class="galeri-overlay"><span>Kegiatan B</span></div>
+            </div>
+            <div class="galeri-item">
+                <img src="https://via.placeholder.com/400x400" alt="Kegiatan 3">
+                <div class="galeri-overlay"><span>Kegiatan C</span></div>
+            </div>
         </div>
-
-        <div class="news-action">
-            <a href="#" class="btn btn-solid">LIHAT SELURUH BERITA</a>
-        </div>
-    </section>
+    </div>
+</section>
 
 <footer class="site-footer">
         
@@ -168,5 +125,6 @@
         // Tutup menu saat ikon X di dalam menu diklik
         closeMenuBtn.addEventListener('click', closeMenu);
     </script>
+
 </body>
 </html>
