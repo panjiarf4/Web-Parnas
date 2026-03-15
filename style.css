@@ -479,7 +479,7 @@ nav a:hover {
 .close-menu {
     display: none;
 }
-/* Aturan khusus untuk layar hp */
+/* ATURAN KHUSUS LAYAR hp */
 @media screen and (max-width: 991px) {
     
     /* 1. MUNCULKAN KEMBALI LOGO AFILIASI DI HP */
@@ -516,7 +516,16 @@ nav a:hover {
         text-align: center !important;
         min-width: 120px !important; /* Biar ukuran kedua tombolnya seimbang */
     }
-
+    /* Efek animasi mendelep saat tombol ditekan */
+    .hero-buttons .btn:active {
+        transform: scale(0.92) !important; /* Tombol mengecil 8% saat ditahan */
+        transition: transform 0.1s ease !important; /* Gerakannya dibikin super mulus dan ngebut */
+    }
+    
+    /* Biar kembalinya juga mulus pas dilepas */
+    .hero-buttons .btn {
+        transition: all 0.3s ease !important; 
+    }
     /* Perubahan: Foto & Nama di bawah */
     .hero-image { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; }
     .hero-image img { width: 80%; margin-bottom: 20px; }
@@ -530,7 +539,7 @@ nav a:hover {
         right: -100% !important;
         width: 60% !important;
         height: calc(100vh - 30px) !important;
-        border-radius: 50px 20px 20px 50px !important;
+        border-radius: 50px 0px 0px 30px !important;
         background: rgba(255, 255, 255, 0.6) !important;
         backdrop-filter: blur(10px) !important;
         -webkit-backdrop-filter: blur(25px) !important;
@@ -568,7 +577,22 @@ nav a:hover {
         color: #ddd;
     }
 
-    /* 5. HEADER POSISI & TOGGLE */
+    /* RAPIKAN GRID BERITA DI HP */
+    .news-grid {
+        display: flex !important;
+        flex-direction: column !important; /* Susun ke bawah */
+        gap: 20px !important;
+        align-items: center !important;
+        padding: 0 20px !important;
+    }
+    .news-card {
+        width: 100% !important; /* Full layar HP */
+        max-width: 400px !important; /* Biar gak terlalu lebar di tablet */
+        height: 250px !important; /* Atur tinggi kartu biar proporsional */
+        margin: 0 auto !important;
+    }
+
+    /* HEADER POSISI & TOGGLE */
     .navbar { display: flex; justify-content: space-between; align-items: center; width: 100%; }
     .logo { order: 1; }
     .menu-toggle { display: block; order: 3; cursor: pointer; }
@@ -616,12 +640,47 @@ nav a:hover {
         position: relative !important;
     }
     nav ul.nav-links.active li:not(.close-menu):not(.mobile-menu-logo) { opacity: 1; transform: translateY(0); }
-    
+    .nav-links li a {
+        font-size: 22px !important; /* Ukuran teks menu biar gede dan mantap */
+        font-weight: bold !important; /* Biar teksnya tebal */
+    }
+    .nav-links li i.fa-search {
+        font-size: 20px !important; /* Besarin juga ikon pencariannya biar seimbang */
+    }
+
     /* Delay antrean */
     nav ul.nav-links.active li:nth-child(2) { transition-delay: 0.1s; }
     nav ul.nav-links.active li:nth-child(3) { transition-delay: 0.2s; }
     nav ul.nav-links.active li:nth-child(4) { transition-delay: 0.3s; }
     nav ul.nav-links.active li:nth-child(5) { transition-delay: 0.4s; }
+
+    body { overflow-x: hidden !important; }
+    /* Daftar semua elemen utama agar ikut bergeser */
+    .hero, 
+    .news-section, 
+    .tentang-section, 
+    .aspirasi-section, 
+    .bg-foto-aspirasi,
+    .form-modern-container,
+    .aspirasi-wrapper-tombol-kembali,
+    .site-footer {
+        transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease !important;
+    }
+    /* Geser saat menu .active muncul */
+    body:has(.nav-links.active) .hero,
+    body:has(.nav-links.active) .news-section,
+    body:has(.nav-links.active) .tentang-section,
+    body:has(.nav-links.active) .aspirasi-section,
+    body:has(.nav-links.active) .bg-foto-aspirasi,
+    body:has(.nav-links.active) .form-modern-container,
+    body:has(.nav-links.active) .aspirasi-wrapper-tombol-kembali,
+    body:has(.nav-links.active) .site-footer {
+        transform: translateX(-60%) !important; 
+        filter: blur(3px) !important; 
+        pointer-events: none !important; 
+    }
+
+
 
     /* ----------------------------------- */
     /* 3. MERAPIKAN FOOTER DI LAYAR HP     */
