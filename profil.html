@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M. Ananda Parnas - Parnas Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="menu-overlay" id="menu-overlay"></div>
+<header class="navbar header-mini">
+        <div class="logo">
+            <a href="#"><img src="\assets\img\LOGO 2.png" alt="Logo Parnas Center" class="logo-parnas"></a>
+        </div>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li class="close-menu" id="close-menu-btn">
+                    <i class="fas fa-times"></i>
+                </li>
+
+                <li><a href="profil.html">PROFIL</a></li>
+                <li><a href="#">PROGRAM</a></li>
+                <li><a href="#">BERITA</a></li>
+                <li><a href="#">GALERI</a></li>
+                <li class="search-icon">
+                    <a href="#"><i class="fas fa-search"></i></a>
+                </li>
+                <li class="mobile-menu-logo">
+                    <img src="\assets\img\LOGO 1.png" alt="Logo Parnas Center" class="logo-parnas-mobile">
+                </li>
+            </ul>
+        </nav>
+        <div class="logo-afiliasi">
+            <img src="\assets\img\DPRD.png" alt="Logo DPRD Kota Jambi" class="logo-dprd">
+            <img src="\assets\img\P3.png" alt="Logo PPP" class="logo-ppp">
+        </div>
+    </header>
+
+<section id="profil-section" class="tentang-section">
+    <div class="bg-lengkung"></div>
+    
+    <div class="wrapper-tombol-kembali">
+        <a href="index.html" class="btn-kembali">
+            <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+        </a>
+    </div>
+
+    <div class="tentang-container">
+        <div class="tentang-image">
+            <img src="assets/img/jas.jpeg" alt="Profil M. Ananda Parnas">
+        </div>
+
+        <div class="tentang-content">
+            <h4 class="sub-judul">PROFIL SINGKAT</h4>
+            <h2 class="judul-utama">Hadir untuk Mendengar, <br><span class="text-orange">Bergerak untuk Berdampak</span></h2>
+            
+            <p>Halo, saya M. Ananda Parnas. Sebagai wakil rakyat Kota Jambi, komitmen utama saya adalah memastikan setiap aspirasi warga tidak hanya didengar, tetapi juga diwujudkan dalam program kerja yang nyata.</p>
+            
+            <p>Saya percaya bahwa kolaborasi antara anak muda dan masyarakat adalah kunci untuk membangun Kota Jambi yang lebih maju, sejahtera, dan berbudaya.</p>
+
+            <p>Dengan pengalaman di berbagai organisasi kepemudaan, saya siap membawa semangat inovasi dan perubahan positif untuk Kota Jambi.  </p>
+            
+            <p> Mari bersama-sama kita wujudkan Kota Jambi yang lebih baik, dengan mendengar, bergerak, dan berdampak nyata untuk masyarakat.</p>
+            <div class="blok-subbab">
+                    <h3><i class="fas fa-graduation-cap"></i> Riwayat Pendidikan</h3>
+                    <ul>
+                        <li>[sd]</li>
+                        <li>[sp]</li>
+                    </ul>
+                </div>
+                <div class="blok-subbab">
+                    <h3><i class="fas fa-briefcase"></i> Pengalaman Organisasi</h3>
+                    <ul>
+                        <li>[ss]</li>
+                        <li>[ss.]</li>
+                    </ul>  
+                </div>    
+    </div>
+</section>
+<footer class="site-footer">
+        
+        <div class="footer-left">
+            <span class="follow-text">follow parnascenter_</span>
+            <div class="footer-sosmed">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-logo">
+            <img src="assets/img/LOGO 7.png" alt="Logo Parnas Center">
+        </div>
+
+        <div class="footer-right">
+            <p>&copy; 2026 Parnas Center. Hak Cipta Dilindungi.</p>
+        </div>
+
+    </footer>
+
+<script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        const menuOverlay = document.getElementById('menu-overlay'); // Panggil tirainya
+        const menuIcon = mobileMenu.querySelector('i'); // Kita panggil elemen <i class="fas ..."> nya
+        const closeMenuBtn = document.getElementById('close-menu-btn'); // Tombol X di dalam menu
+        
+        // Fungsi khusus untuk menutup menu
+        function closeMenu() {
+            navLinks.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            menuIcon.classList.add('fa-bars');
+            menuIcon.classList.remove('fa-times');
+        }
+
+        // Buka/Tutup saat ikon garis tiga diklik
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            menuIcon.classList.toggle('fa-bars');
+            menuIcon.classList.toggle('fa-times');
+        });
+
+        // Tutup menu saat area gelap diklik
+        menuOverlay.addEventListener('click', closeMenu);
+
+        // Tutup menu saat ikon X di dalam menu diklik
+        closeMenuBtn.addEventListener('click', closeMenu);
+    </script>
+
+</body>
+</html>

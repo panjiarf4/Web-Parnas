@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M. Ananda Parnas - Parnas Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="menu-overlay" id="menu-overlay"></div>
+<header class="navbar header-mini">
+        <div class="logo">
+            <a href="#"><img src="\assets\img\LOGO 2.png" alt="Logo Parnas Center" class="logo-parnas"></a>
+        </div>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li class="close-menu" id="close-menu-btn">
+                    <i class="fas fa-times"></i>
+                </li>
+
+                <li><a href="profil.html">PROFIL</a></li>
+                <li><a href="#">PROGRAM</a></li>
+                <li><a href="#">BERITA</a></li>
+                <li><a href="#">GALERI</a></li>
+                <li class="search-icon">
+                    <a href="#"><i class="fas fa-search"></i></a>
+                </li>
+                <li class="mobile-menu-logo">
+                    <img src="\assets\img\LOGO 1.png" alt="Logo Parnas Center" class="logo-parnas-mobile">
+                </li>
+            </ul>
+        </nav>
+        <div class="logo-afiliasi">
+            <img src="\assets\img\DPRD.png" alt="Logo DPRD Kota Jambi" class="logo-dprd">
+            <img src="\assets\img\P3.png" alt="Logo PPP" class="logo-ppp">
+        </div>
+    </header>
+
+<section id="aspirasi-section" class="aspirasi-section" ></section>
+    <img src="assets/img/foto 4.jpeg" class="bg-foto-aspirasi" alt="Kota Jambi">
+    <div class="form-modern-container">
+
+    <div class="aspirasi-wrapper-tombol-kembali" >
+        <a href="index.html" class="btn-kembali" >
+            <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+        </a>
+    </div>
+
+        <div class="form-header">
+            <h4>KOTAK ASPIRASI</h4>
+            <h2>
+                <span class ="teks-hijau"> Suara Anda untuk <span >
+                <span class ="teks-kuning "> Kota Jambi</span>
+            </h2>
+            <p>Punya masukan, ide, atau keluhan terkait lingkungan sekitar? Jangan ragu untuk menyampaikannya. Kami siap mendengar dan menindaklanjuti.</p>
+        </div>
+
+        <div class="form-card">
+            <form action="#" method="POST">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nama"><i class="fas fa-user"></i> Nama Lengkap</label>
+                        <input type="text" id="nama" placeholder="Masukkan nama Anda..." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="wa"><i class="fab fa-whatsapp"></i> No. WhatsApp</label>
+                        <input type="tel" id="wa" placeholder="08xx-xxxx-xxxx" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="topik"><i class="fas fa-list-ul"></i> Topik Aspirasi</label>
+                    <select id="topik" required>
+                        <option value="" disabled selected>Pilih Topik Pembahasan...</option>
+                        <option value="infrastruktur">Infrastruktur & Fasilitas Umum</option>
+                        <option value="pendidikan">Pendidikan & Kesehatan</option>
+                        <option value="umkm">Ekonomi Kreatif & UMKM</option>
+                        <option value="lingkungan">Kebersihan & Lingkungan</option>
+                        <option value="lainnya">Lainnya</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="pesan"><i class="fas fa-comment-dots"></i> Isi Aspirasi</label>
+                    <textarea id="pesan" rows="5" placeholder="Ceritakan detail aspirasi, masukan, atau keluhan Anda di sini..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit-modern">
+                    <i class="fas fa-paper-plane"></i> Kirim Aspirasi Sekarang
+                </button>
+
+            </form>
+        </div>
+
+    </div>
+</section>
+
+<footer class="site-footer">
+        
+        <div class="footer-left">
+            <span class="follow-text">follow parnascenter_</span>
+            <div class="footer-sosmed">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-logo">
+            <img src="assets/img/LOGO 7.png" alt="Logo Parnas Center">
+        </div>
+
+        <div class="footer-right">
+            <p>&copy; 2026 Parnas Center. Hak Cipta Dilindungi.</p>
+        </div>
+
+    </footer>
+
+<script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        const menuOverlay = document.getElementById('menu-overlay'); // Panggil tirainya
+        const menuIcon = mobileMenu.querySelector('i'); // Kita panggil elemen <i class="fas ..."> nya
+        const closeMenuBtn = document.getElementById('close-menu-btn'); // Tombol X di dalam menu
+        
+        // Fungsi khusus untuk menutup menu
+        function closeMenu() {
+            navLinks.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            menuIcon.classList.add('fa-bars');
+            menuIcon.classList.remove('fa-times');
+        }
+
+        // Buka/Tutup saat ikon garis tiga diklik
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            menuIcon.classList.toggle('fa-bars');
+            menuIcon.classList.toggle('fa-times');
+        });
+
+        // Tutup menu saat area gelap diklik
+        menuOverlay.addEventListener('click', closeMenu);
+
+        // Tutup menu saat ikon X di dalam menu diklik
+        closeMenuBtn.addEventListener('click', closeMenu);
+    </script>
+
+</body>
+</html>
