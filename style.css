@@ -479,7 +479,7 @@ nav a:hover {
 .close-menu {
     display: none;
 }
-
+/* Aturan khusus untuk layar hp */
 @media screen and (max-width: 991px) {
     
     /* 1. MUNCULKAN KEMBALI LOGO AFILIASI DI HP */
@@ -504,6 +504,19 @@ nav a:hover {
     .hero-content { text-align: center; }
     .hero-content h1 { font-size: 30px; margin-bottom: 30px; }
     
+    .hero-buttons {
+        display: flex !important;
+        justify-content: center !important; /* Pastikan tombol di tengah */
+        gap: 10px !important; /* Jarak antar 2 tombol dirapatkan sedikit */
+        flex-wrap: wrap !important; /* Jaga-jaga kalau layarnya super kecil, dia bakal turun ke bawah */
+    }
+    .hero-buttons .btn {
+        padding: 10px 15px !important; /* Bikin tombol lebih tipis dan singset */
+        font-size: 13px !important; /* Ukuran teks dikecilkan biar proporsional */
+        text-align: center !important;
+        min-width: 120px !important; /* Biar ukuran kedua tombolnya seimbang */
+    }
+
     /* Perubahan: Foto & Nama di bawah */
     .hero-image { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; }
     .hero-image img { width: 80%; margin-bottom: 20px; }
