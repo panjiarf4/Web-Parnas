@@ -484,7 +484,7 @@ nav a:hover {
     
     /* 1. MUNCULKAN KEMBALI LOGO AFILIASI DI HP */
     .logo-afiliasi { display: flex; gap: 10px; order: 2; margin-left: auto; margin-right: 15px; }
-    .logo-afiliasi img { height: 30px; }
+    .logo-afiliasi img { height: 25px !important; }
 
     /* KECILKAN HEADER DAN LOGO UTAMA DI HP */
     header.navbar {
