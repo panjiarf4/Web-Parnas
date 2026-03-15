@@ -43,10 +43,8 @@
     </header>
 
 <section id="galeri-section" class="galeri-section">
-    <div class="bg-lengkung"></div>
-
-    <div class="wrapper-tombol-kembali">
-        <a href="index.html" class="btn btn-kembali">
+    <div class="galeri-wrapper-tombol-kembali">
+        <a href="index.html" class="btn-kembali">
             <i class="fas fa-arrow-left"></i> Kembali ke Beranda
         </a>
     </div>
@@ -59,16 +57,28 @@
 
         <div class="galeri-grid">
             <div class="galeri-item">
-                <img src="https://via.placeholder.com/400x400" alt="Kegiatan 1">
+                <img src="assets/img/galeri 1.jpeg" alt="Kegiatan 1">
                 <div class="galeri-overlay"><span>Kegiatan A</span></div>
             </div>
             <div class="galeri-item">
-                <img src="https://via.placeholder.com/400x400" alt="Kegiatan 2">
+                <img src="assets/img/galeri 2.jpeg" alt="Kegiatan 2">
                 <div class="galeri-overlay"><span>Kegiatan B</span></div>
             </div>
             <div class="galeri-item">
-                <img src="https://via.placeholder.com/400x400" alt="Kegiatan 3">
+                <img src="assets/img/galeri 3.jpeg" alt="Kegiatan 3">
                 <div class="galeri-overlay"><span>Kegiatan C</span></div>
+            </div>
+            <div class="galeri-item">
+                <img src="assets/img/galeri 4.jpeg" alt="Kegiatan 4">
+                <div class="galeri-overlay"><span>Kegiatan D</span></div>
+            </div>
+            <div class="galeri-item">
+                <img src="assets/img/galeri 5.jpeg" alt="Kegiatan 5">
+                <div class="galeri-overlay"><span>Kegiatan E</span></div>
+            </div>
+            <div class="galeri-item">
+                <img src="assets/img/galeri 6.jpeg" alt="Kegiatan 6">
+                <div class="galeri-overlay"><span>Kegiatan F</span></div>
             </div>
         </div>
     </div>
@@ -79,10 +89,10 @@
         <div class="footer-left">
             <span class="follow-text">follow parnascenter_</span>
             <div class="footer-sosmed">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-tiktok"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com/parnascenter_" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/parnascenter_?igsh=MTF1b2N0b2VjYm1kOA==" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@parnascenter?_r=1&_t=ZS-94iUjUcTSi4" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.youtube.com/@parnascenter_" target="_blank"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
 
@@ -96,13 +106,24 @@
 
     </footer>
 
+<div id="galeri-modal" class="modal-popup">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content-popup" id="img-popup">
+    <div id="caption-popup"></div>
+</div>
+
 <script>
         const mobileMenu = document.getElementById('mobile-menu');
         const navLinks = document.querySelector('.nav-links');
         const menuOverlay = document.getElementById('menu-overlay'); // Panggil tirainya
         const menuIcon = mobileMenu.querySelector('i'); // Kita panggil elemen <i class="fas ..."> nya
         const closeMenuBtn = document.getElementById('close-menu-btn'); // Tombol X di dalam menu
-        
+        const modal = document.getElementById("galeri-modal");
+        const modalImg = document.getElementById("img-popup");
+        const captionText = document.getElementById("caption-popup");
+        const images = document.querySelectorAll(".galeri-item img");
+        const texts = document.querySelectorAll(".galeri-overlay span");
+
         // Fungsi khusus untuk menutup menu
         function closeMenu() {
             navLinks.classList.remove('active');
@@ -124,6 +145,30 @@
 
         // Tutup menu saat ikon X di dalam menu diklik
         closeMenuBtn.addEventListener('click', closeMenu);
+
+        // Bikin setiap foto bisa diklik
+        images.forEach((img, index) => {
+            img.onclick = function() {
+                modal.style.display = "flex"; // Munculin pop-up
+                modalImg.src = this.src; // Pindahin gambar yang diklik ke pop-up
+                captionText.innerHTML = texts[index].innerHTML; // Munculin teksnya juga
+            }
+        });
+
+        // Ambil tombol X buat nutup
+        const span = document.getElementsByClassName("close-modal")[0];
+
+        // Fungsi nutup pas X diklik
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Fungsi nutup pas ngeklik di luar foto (di area hitam)
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
     </script>
 
 </body>

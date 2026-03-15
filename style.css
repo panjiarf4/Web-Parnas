@@ -313,12 +313,24 @@ nav a:hover {
 
 /* --- Footer (Bagian Bawah) --- */
 .site-footer {
-    background-color: var(--warna-putih);
+    background-color: #1d5b20 !important; /* Warna hijau gelap khas Parnas Center */
     padding: 30px 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-top: 1px solid #E0E0E0; /* Garis tipis pemisah */
+    color: #ffffff !important; /* Teks putih untuk kontras */
+}
+.site-footer a, 
+.site-footer a i,
+.site-footer p,
+.site-footer span {
+    color: #ffffff !important;
+}
+
+/* Ubah logo Parnas yang hitam jadi putih terang */
+.site-footer img {
+    filter: brightness(0) invert(1) !important;
 }
 
 .footer-left {
@@ -605,24 +617,19 @@ nav a:hover {
         font-weight: bold !important;
         text-align: center !important;
     }
-    /* 5. PENGATURAN GALERI FOTO (Biar rapi di HP) */
+    
     .galeri-grid {
-        display: flex !important;
-        flex-direction: column !important;
+        flex-direction: column !important; /* Stack ke bawah */
+        align-items: center !important;
         gap: 15px !important;
-        padding: 20px !important;
     }
+
     .galeri-item {
         width: 100% !important;
-        border-radius: 15px !important;
-        overflow: hidden !important;
+        max-width: 350px !important;
         height: 250px !important;
     }
-    .galeri-item img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-    }
+
 
     /* HEADER POSISI & TOGGLE */
     .navbar { display: flex; justify-content: space-between; align-items: center; width: 100%; }
@@ -1140,6 +1147,178 @@ nav a:hover {
     transform: translateY(-3px); /* Tombol naik dikit pas disentuh mouse */
     box-shadow: 0 8px 25px rgba(217, 156, 43, 0.4); /* Bayangan oranye muncul */
 }
+    /* ========================================================= */
+    /* 1. PAKSA FOOTER SELALU DI BAWAH                           */
+    /* ========================================================= */
+    body {
+        display: flex !important;
+        flex-direction: column !important;
+        min-height: 100vh !important; /* Minimal setinggi layar */
+        margin: 0 !important;
+        overflow-x: hidden !important; /* Mencegah geser kanan-kiri yang nggak sengaja */
+    }
+
+    /* Pembungkus utama akan mendorong footer ke bawah */
+    .page-wrapper {
+        flex: 1 0 auto !important; 
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding-top: 20px;
+    }
+
+    /* Footer fix di dasar */
+    .site-footer {
+        flex-shrink: 0 !important; 
+        width: 100% !important;
+        margin-top: auto !important; /* Juru kunci penendang footer ke bawah */
+        padding: 30px 20px !important;
+        text-align: center !important;
+        background: #fff; /* Sesuaikan dengan warna background footer Abang */
+    }
+
+    /* ========================================================= */
+    /* 2. TAMPILAN GALERI (GRID)                                 */
+    /* ========================================================= */
+    .galeri-section {
+        position: relative;
+        background-color: #ffffff; /* Latar belakang full putih */
+        overflow: hidden;
+        padding-bottom: 50px; /* Jarak aman di bawah grid */
+    }
+    /* Pola geometris samar di sudut (menggunakan pseudo-element) */
+    .galeri-section::before,
+    .galeri-section::after {
+        content: '';
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        /* GANTI WARNA ABU-ABU %23f0f0f0 DENGAN HIJAU KITA %231C6C32 */
+        background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg"><polygon points="50,15 100,100 0,100" fill="%231B5E20"/></svg>');
+        background-size: cover;
+        opacity: 1; /* Tetap samar-samar (0.3) agar tidak menutupi konten */
+        z-index: 1; /* Di belakang konten */
+    }
+    /* Posisi di sudut kiri atas */
+    .galeri-section::before {
+        top: -50px;
+        left: -50px;
+        transform: rotate(15deg);
+    }
+    /* Posisi di sudut kanan bawah */
+    .galeri-section::after {
+        bottom: -50px;
+        right: -50px;
+        transform: rotate(-15deg);
+    }
+    .galeri-wrapper-tombol-kembali {
+        position: relative !important;
+        z-index: 99 !important; /* Angka gede biar dia dipaksa maju ke tumpukan paling depan */
+        padding: 50px 20px 0 20px; /* Biar ada napas dikit di pojokan */
+    }
+    .galeri-wrapper-tombol-kembali .btn-kembali {
+        position: relative !important;
+        z-index: 99 !important;
+    }
+    /* ========================================================= */
+    /* 2. LAYOUT GRID BARU                                      */
+    /* ========================================================= */
+    .galeri-container {
+        position: relative;
+        z-index: 2; /* Di depan pola geometris */
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .galeri-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+    .galeri-item {
+        width: 30%; /* Desktop: 3 kolom */
+        height: 250px;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Bayangan modern */
+    }
+    .galeri-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* ========================================================= */
+    /* EFEK POP-UP / LIGHTBOX GALERI                             */
+    /* ========================================================= */
+    /* Kursor berubah jadi jari pas foto disorot (biar tau bisa diklik) */
+    .galeri-item img {
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    .galeri-item img:hover {
+        opacity: 0.8;
+    }
+    /* Latar Belakang Gelap Pop-up */
+    .modal-popup {
+        display: none; /* Sembunyi secara default */
+        position: fixed;
+        z-index: 9999; /* Maju paling depan nutupin segalanya */
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.9); /* Hitam 90% pekat */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    /* Foto di dalam Pop-up */
+    .modal-content-popup {
+        margin: auto;
+        display: block;
+        width: 90%;
+        max-width: 800px;
+        border-radius: 8px;
+        animation: zoomIn 0.3s ease; /* Animasi nge-zoom */
+    }
+    /* Teks Keterangan Foto */
+    #caption-popup {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+        text-align: center;
+        color: #fff;
+        padding: 15px 0;
+        font-size: 20px;
+        font-weight: bold;
+        animation: zoomIn 0.3s ease;
+    }
+    /* Animasi Zoom */
+    @keyframes zoomIn {
+        from {transform: scale(0.1)}
+        to {transform: scale(1)}
+    }
+    /* Tombol X (Close) */
+    .close-modal {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+        cursor: pointer;
+    }
+    .close-modal:hover,
+    .close-modal:focus {
+        color: #ff9f1c; /* Berubah oranye pas disorot */
+        text-decoration: none;
+        cursor: pointer;
+    }
 
 /* Tambahkan .galeri-section ke daftar transisi dan transform */
     .hero, .news-section, .tentang-section, .aspirasi-section, .galeri-section, .site-footer {
