@@ -484,7 +484,19 @@ nav a:hover {
     
     /* 1. MUNCULKAN KEMBALI LOGO AFILIASI DI HP */
     .logo-afiliasi { display: flex; gap: 10px; order: 2; margin-left: auto; margin-right: 15px; }
-    .logo-afiliasi img { height: 45px; }
+    .logo-afiliasi img { height: 35px; }
+
+    /* KECILKAN HEADER DAN LOGO UTAMA DI HP */
+    header.navbar {
+        padding: 10px 15px !important; /* Bikin header tipis */
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    .logo-parnas {
+        height: 35px !important; /* Ini dia target utamanya! */
+        width: auto !important;
+    }
 
     /* 2. RAPIKAN AREA HERO (TEKS & FOTO) DI HP */
     .hero { height: auto; padding-bottom: 60px; }
