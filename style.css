@@ -1413,7 +1413,7 @@ nav a:hover {
     border: none;
     border-bottom: 2px solid #ffffff; /* Garis bawah warna putih */
     color: #ffffff; /* Warna teks putih */
-    font-size: 40px; /* Ukuran teks dibikin gede */
+    font-size: 30px; /* Ukuran teks dibikin gede */
     padding: 10px 0;
     outline: none;
 }
