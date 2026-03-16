@@ -1443,17 +1443,27 @@ nav a:hover {
     border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Garis pemisah tipis */
 }
 /* Teks link hasil pencarian */
-.item-hasil a {
-    color: #F5A623; /* Warna Oranye khas Parnas biar kontras di atas hijau */
+.item-hasil a, 
+.item-hasil a:link, 
+.item-hasil a:visited, 
+.item-hasil a:active {
+    color: #F5A623 !important; /* Tambahin !important biar nggak bisa dilawan */
     font-size: 24px;
     font-weight: bold;
     text-decoration: none;
     transition: 0.3s;
+    display: block; /* Biar gampang diklik di HP */
 }
 /* Efek pas disorot mouse */
 .item-hasil a:hover {
     color: #ffffff;
     padding-left: 10px; /* Geser dikit pas dihover biar keren */
+}
+@media (min-width: 768px) {
+    .item-hasil a:hover {
+        color: #ffffff !important;
+        padding-left: 10px; 
+    }
 }
 /* Kalau hasil nggak ketemu */
 .hasil-kosong {
