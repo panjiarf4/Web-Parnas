@@ -29,7 +29,7 @@
                 <li><a href="#">BERITA</a></li>
                 <li><a href="galeri.html">GALERI</a></li>
                 <li class="search-icon">
-                    <a href="#"><i class="fas fa-search"></i></a>
+                    <a href="javascript:void(0)" onclick="bukaSearch()"><i class="fas fa-search"></i></a>
                 </li>
                 <li class="mobile-menu-logo">
                     <img src="\assets\img\LOGO 1.png" alt="Logo Parnas Center" class="logo-parnas-mobile">
@@ -158,6 +158,17 @@
 
     </footer>
 
+<div id="search-modal" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-btn" onclick="tutupSearch()">&times;</span>
+        <form id="search-form" onsubmit="event.preventDefault(); lakukanPencarian();">
+            <input type="text" id="search-input" placeholder="Apa yang Anda cari?..." required>
+            <button type="submit">CARI</button>
+        </form>
+        <div id="hasil-pencarian-popup"></div>
+    </div>
+</div>
+
 <script>
         const mobileMenu = document.getElementById('mobile-menu');
         const navLinks = document.querySelector('.nav-links');
@@ -171,6 +182,13 @@
             menuOverlay.classList.remove('active');
             menuIcon.classList.add('fa-bars');
             menuIcon.classList.remove('fa-times');
+        }
+        function bukaSearch() {
+            document.getElementById("search-modal").style.display = "flex";
+        }
+
+        function tutupSearch() {
+            document.getElementById("search-modal").style.display = "none";
         }
 
         // Buka/Tutup saat ikon garis tiga diklik
@@ -186,6 +204,64 @@
 
         // Tutup menu saat ikon X di dalam menu diklik
         closeMenuBtn.addEventListener('click', closeMenu);
+    
+    // 1. DATABASE MINI (Sekarang ada "isiTeks"-nya)
+    const dataWebsite = [
+        { 
+            judul: "Profil Singkat M. Ananda Parnas", 
+            link: "profil.html", 
+            isiTeks: "Hadir untuk Mendengar, Bergerak untuk Berdampak. Halo, saya M. Ananda Parnas. Sebagai wakil rakyat Kota Jambi, komitmen utama saya adalah memastikan setiap aspirasi warga tidak hanya didengar, tetapi juga diwujudkan dalam program kerja yang nyata. Saya percaya bahwa kolaborasi antara anak muda dan masyarakat adalah kunci untuk membangun Kota Jambi yang lebih maju, sejahtera, dan berbudaya. Dengan pengalaman di berbagai organisasi kepemudaan, saya siap membawa semangat inovasi dan perubahan positif untuk Kota Jambi. Mari bersama-sama kita wujudkan Kota Jambi yang lebih baik, dengan mendengar, bergerak, dan berdampak nyata untuk masyarakat. Riwayat Pendidikan, Pengalaman Organisasi." 
+        },
+        { 
+            judul: "Galeri Kegiatan", 
+            link: "galeri.html", 
+            isiTeks: "Dokumentasi foto-foto kegiatan kebersamaan, acara syukuran, dan berbagai kegiatan lapangan yang dilakukan." 
+        },
+        { 
+            judul: "Kegiatan Sosial di Medan", 
+            link: "berita1.html", 
+            isiTeks: "Parnas Center mengadakan pembagian sembako berupa beras dan minyak goreng untuk warga kurang mampu di daerah Medan. Acara ini dihadiri oleh ketua umum." 
+        },
+        { 
+            judul: "Rapat Tahunan Pengurus", 
+            link: "berita2.html", 
+            isiTeks: "Dalam rapat tahunan ini, pengurus membahas evaluasi program kerja tahun lalu dan merencanakan pembangunan kantor sekretariat yang baru." 
+        },
+        { 
+            judul: "Galeri Foto Bersama", 
+            link: "galeri.html", 
+            isiTeks: "Dokumentasi foto-foto kegiatan kebersamaan anggota Parnas Center selama tahun ini, termasuk acara syukuran dan olahraga bersama." 
+        }
+    ];
+
+    // 2. FUNGSI PENCARIAN KATA
+    function lakukanPencarian() {
+        const kataKunci = document.getElementById("search-input").value.toLowerCase();
+        const tempatHasil = document.getElementById("hasil-pencarian-popup");
+        
+        tempatHasil.innerHTML = "";
+        if (kataKunci.trim() === "") return; 
+
+        // Proses nyari kata di judul ATAU di dalam isi teks
+        const hasilCocok = dataWebsite.filter(item => 
+            item.judul.toLowerCase().includes(kataKunci) || 
+            item.isiTeks.toLowerCase().includes(kataKunci)
+        );
+
+        // 3. TAMPILIN HASIL BESERTA CUPLIKAN TEKSNYA
+        if (hasilCocok.length > 0) {
+            hasilCocok.forEach(item => {
+                tempatHasil.innerHTML += `
+                    <div class="item-hasil">
+                        <a href="${item.link}">${item.judul}</a>
+                        <p class="cuplikan-teks">${item.isiTeks.substring(0, 100)}...</p>
+                    </div>
+                `;
+            });
+        } else {
+            tempatHasil.innerHTML = `<p class="hasil-kosong">Waduh, kata "<b>${kataKunci}</b>" tidak ditemukan.</p>`;
+        }
+    }
     </script>
 </body>
 </html>

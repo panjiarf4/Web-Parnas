@@ -1386,3 +1386,87 @@ nav a:hover {
         padding: 25px; /* Padding dikecilin biar muat di HP */
     }
 }
+
+/* MENU PENCARIAN */
+.modal-overlay {
+    display: none; 
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(27, 94, 31, 0.918); /* Hijau Parnas yg pekat transparan */
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+/* INI KUNCINYA: Hapus kotak putihnya jadi transparan */
+.modal-content {
+    background: transparent !important; /* Biar gak ada kotak putih */
+    width: 80%;
+    max-width: 800px;
+    text-align: left; /* Biar teksnya mulai dari kiri kayak di gambar */
+    padding: 0;
+}
+/* Gaya Input Pencarian (Cuma garis bawah) */
+#search-form input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #ffffff; /* Garis bawah warna putih */
+    color: #ffffff; /* Warna teks putih */
+    font-size: 40px; /* Ukuran teks dibikin gede */
+    padding: 10px 0;
+    outline: none;
+}
+/* Warna teks bayangan (placeholder) */
+#search-form input::placeholder {
+    color: #ffa01cb4; /* Warna oranye untuk placeholder */
+}
+/* Sembunyikan Tombol "CARI" (Ketik langsung tekan Enter aja) */
+#search-form button {
+    display: none; 
+}
+/* Tombol silang untuk nutup */
+.close-btn {
+    position: absolute;
+    top: 30px; right: 40px;
+    font-size: 50px;
+    color: white;
+    cursor: pointer;
+}
+/* Jarak wadah hasil pencarian dari garis bawah input */
+#hasil-pencarian-popup {
+    margin-top: 30px;
+}
+/* Gaya per-item hasil pencarian */
+.item-hasil {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Garis pemisah tipis */
+}
+/* Teks link hasil pencarian */
+.item-hasil a {
+    color: #F5A623; /* Warna Oranye khas Parnas biar kontras di atas hijau */
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+/* Efek pas disorot mouse */
+.item-hasil a:hover {
+    color: #ffffff;
+    padding-left: 10px; /* Geser dikit pas dihover biar keren */
+}
+/* Kalau hasil nggak ketemu */
+.hasil-kosong {
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+    opacity: 0.8;
+}
+/* Gaya untuk cuplikan teks di bawah judul hasil pencarian */
+.cuplikan-teks {
+    color: #ffffff;
+    font-size: 16px;
+    margin-top: 5px;
+    opacity: 0.8;
+    line-height: 1.5;
+}
