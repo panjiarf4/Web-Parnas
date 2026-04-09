@@ -64,13 +64,14 @@
         <div class="form-card">
             <script>var submitted = false;</script>
             <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { alert('Terima kasih! Aspirasi Anda berhasil dikirim.'); window.location.reload(); }"></iframe>
-
-            <form action="https://docs.google.com/forms/d/e/1FAIpQLSd705yILHcrnKGcQrSsgJwaoZoEt9Vh7zHEZjDxaA30cxxFLA/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
+            <form id="form-aspirasi" action="https://docs.google.com/forms/d/e/1FAIpQLSd705yILHcrnKGcQrSsgJwaoZoEt9Vh7zHEZjDxaA30cxxFLA/formResponse" method="POST">
+                
                 <div class="form-row">
                     <div class="form-group">
                         <label for="nama"><i class="fas fa-user"></i> Nama Lengkap</label>
                         <input type="text" id="nama" name="entry.1020337199" placeholder="Masukkan nama Anda..." required>
                     </div>
+                    
                     <div class="form-group">
                         <label for="wa"><i class="fab fa-whatsapp"></i> No. WhatsApp</label>
                         <input type="text" id="wa" name="entry.1484782853" placeholder="08xx-xxxx-xxxx" required>
@@ -93,6 +94,7 @@
                     <label for="pesan"><i class="fas fa-comment-dots"></i> Isi Aspirasi</label>
                     <textarea id="pesan" name="entry.1428097906" rows="5" placeholder="Ceritakan detail aspirasi, masukan, atau keluhan Anda di sini..." required></textarea>
                 </div>
+
                 <button type="submit" class="btn-submit-modern">
                     <i class="fas fa-paper-plane"></i> Kirim Aspirasi Sekarang
                 </button>
@@ -152,31 +154,39 @@
 
         // Tutup menu saat ikon X di dalam menu diklik
         closeMenuBtn.addEventListener('click', closeMenu);
-    </script>
-    <script>
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
     const formAspirasi = document.getElementById('form-aspirasi');
 
-    formAspirasi.addEventListener('submit', function(e) {
-        // Ini yang bikin halaman GAK MENTAL ke Google Form
-        e.preventDefault(); 
+    if(formAspirasi) {
+        formAspirasi.addEventListener('submit', function(e) {
+            e.preventDefault(); // Tahan biar nggak pindah halaman
 
-        // Ambil semua data yang diisi
-        const data = new FormData(formAspirasi);
+            // Ambil data form
+            const formData = new FormData(formAspirasi);
+            
+            // UBAH FORMAT KE URL-ENCODED (Ini kunci biar Google nggak nolak)
+            const dataUrlEncoded = new URLSearchParams(formData);
 
-        // Proses kirim data ke Google Form di belakang layar
-        fetch(formAspirasi.action, {
-            method: 'POST',
-            body: data,
-            mode: 'no-cors' // Kunci utama biar server hosting nggak ngeblokir
-        }).then(() => {
-            // Kalau sukses, munculin pesan dan kosongin form
-            alert('Terima kasih! Aspirasi Anda berhasil dikirim.');
-            formAspirasi.reset(); 
-        }).catch((error) => {
-            // Kalau gagal karena koneksi
-            alert('Waduh, gagal mengirim. Coba periksa koneksi internet bossku.');
+            // Tembak datanya ke Google Form
+            fetch(formAspirasi.action, {
+                method: 'POST',
+                body: dataUrlEncoded,
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            }).then(() => {
+                alert('Terima kasih! Aspirasi Anda berhasil dikirim.');
+                formAspirasi.reset(); // Kosongkan isian form setelah sukses
+            }).catch((error) => {
+                alert('Waduh, gagal mengirim. Coba periksa koneksi internet bossku.');
+                console.error('Error:', error);
+            });
         });
-    });
+    }
+});
 </script>
 
 </body>
