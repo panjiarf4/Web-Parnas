@@ -66,7 +66,6 @@
             <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { alert('Terima kasih! Aspirasi Anda berhasil dikirim.'); window.location.reload(); }"></iframe>
 
             <form action="https://docs.google.com/forms/d/e/1FAIpQLSd705yILHcrnKGcQrSsgJwaoZoEt9Vh7zHEZjDxaA30cxxFLA/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
-
                 <div class="form-row">
                     <div class="form-group">
                         <label for="nama"><i class="fas fa-user"></i> Nama Lengkap</label>
@@ -154,6 +153,31 @@
         // Tutup menu saat ikon X di dalam menu diklik
         closeMenuBtn.addEventListener('click', closeMenu);
     </script>
+    <script>
+    const formAspirasi = document.getElementById('form-aspirasi');
+
+    formAspirasi.addEventListener('submit', function(e) {
+        // Ini yang bikin halaman GAK MENTAL ke Google Form
+        e.preventDefault(); 
+
+        // Ambil semua data yang diisi
+        const data = new FormData(formAspirasi);
+
+        // Proses kirim data ke Google Form di belakang layar
+        fetch(formAspirasi.action, {
+            method: 'POST',
+            body: data,
+            mode: 'no-cors' // Kunci utama biar server hosting nggak ngeblokir
+        }).then(() => {
+            // Kalau sukses, munculin pesan dan kosongin form
+            alert('Terima kasih! Aspirasi Anda berhasil dikirim.');
+            formAspirasi.reset(); 
+        }).catch((error) => {
+            // Kalau gagal karena koneksi
+            alert('Waduh, gagal mengirim. Coba periksa koneksi internet bossku.');
+        });
+    });
+</script>
 
 </body>
 </html>
