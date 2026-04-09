@@ -38,6 +38,16 @@ body {
     padding: 40px 60px;
     background-color: var(--warna-putih);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Memberikan bayangan halus di bawah menu */;
+    /* --- KODE STICKY & BACKGROUND MUTLAK --- */
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 9999 !important; /* Angkanya digedein sekalian biar paling atas */
+    background-color: rgba(255, 255, 255, 0.5) !important; 
+    /* Efek kaca buram (Glassmorphism) biar kelihatan mahal */
+    backdrop-filter: blur(8px) !important; 
+    -webkit-backdrop-filter: blur(8px) !important; /* Biar jalan juga di iPhone/Safari */
+    /* Bayangan tipis */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
 }
 
 .logo img {
@@ -97,6 +107,7 @@ nav a:hover {
     width: auto;
     object-fit: contain;
 }
+
 
 /* --- Hero Section --- */
 .hero {
@@ -1479,4 +1490,151 @@ nav a:hover {
     margin-top: 5px;
     opacity: 0.8;
     line-height: 1.5;
+}
+
+
+/* ========================================= */
+/* --- CSS UNTUK HALAMAN DETAIL BERITA --- */
+/* ========================================= */
+.detail-berita-container {
+    max-width: 800px; /* Sengaja dibatasi lebarnya biar mata nggak capek baca dari ujung ke ujung */
+    margin: 50px auto; /* Bikin posisinya persis di tengah layar */
+    padding: 0 20px;
+}
+/* Tombol Kembali */
+.btn-kembali {
+    display: inline-flex;
+    align-items: center;
+    color: #F5A623; /* Oranye Parnas */
+    font-weight: 600;
+    text-decoration: none;
+    margin-bottom: 25px;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+.btn-kembali:hover {
+    color: #1B5E20; /* Berubah hijau pas disorot */
+}
+.btn-kembali span {
+    margin-right: 8px;
+    font-size: 20px;
+}
+
+/* Judul Artikel */
+.judul-berita {
+    color: #1B5E20; /* Hijau Parnas */
+    font-size: 34px;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+/* Tanggal Publikasi */
+.tanggal-berita {
+    color: #777777;
+    font-size: 14px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e0e0e0; /* Garis tipis pembatas */
+    padding-bottom: 15px;
+}
+
+/* Foto Utama */
+.foto-berita-utama {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Bikin ujung foto agak melengkung */
+    margin-bottom: 35px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Bayangan halus */
+}
+
+/* Teks Paragraf Berita */
+.isi-berita p {
+    font-size: 18px;
+    line-height: 1.8; /* Jarak antar baris diperlebar biar nyaman dibaca */
+    color: #333333;
+    margin-bottom: 20px;
+    text-align: justify; /* Teks rata kanan-kiri */
+}
+
+/* --- RESPONSIF BUAT HP --- */
+@media (max-width: 768px) {
+    .judul-berita {
+        font-size: 26px; /* Judul agak dikecilin kalau di HP */
+    }
+    .detail-berita-container {
+        max-width: 100% !important; /* Paksa lebarnya full */
+        padding-left: 5% !important; /* Jarak kiri, sesuaikan angkanya biar pas sama logo */
+        padding-right: 5% !important; /* Jarak kanan */
+        margin-top: 50px !important;
+    }
+    .isi-berita p {
+        font-size: 16px; /* Teks paragraf juga disesuaikan */
+    }
+}
+/* --- STYLE KHAS HALAMAN DAFTAR BERITA --- */
+.portal-berita-section {
+    padding: 40px 20px 60px 20px; /* Padding atas lebih besar biar nggak ketutupan navbar sticky */
+    background-color: #f9f9f9;
+}
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.judul-utama {
+    text-align: center;
+    color: #1B5E20;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+.sub-judul {
+    text-align: center;
+    color: #666;
+    margin-bottom: 50px;
+}
+
+/* --- KODE UNTUK KARTU BERITA --- */
+.berita-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px;
+    margin-top: 40px;
+}
+.berita-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: 0.3s;
+}
+.berita-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+.berita-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+.berita-info {
+    padding: 25px;
+}
+.berita-tanggal {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 10px;
+    display: block;
+}
+.berita-info h3 {
+    color: #1B5E20;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+.berita-info p {
+    color: #555;
+    margin-bottom: 20px;
+}
+.btn-baca {
+    color: #F5A623;
+    font-weight: bold;
+    text-decoration: none;
 }
