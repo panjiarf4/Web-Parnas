@@ -62,9 +62,10 @@
         </div>
 
         <div class="form-card">
-            <script>var submitted = false;</script>
-            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { alert('Terima kasih! Aspirasi Anda berhasil dikirim.'); window.location.reload(); }"></iframe>
-            <form id="form-aspirasi" action="https://docs.google.com/forms/d/e/1FAIpQLSd705yILHcrnKGcQrSsgJwaoZoEt9Vh7zHEZjDxaA30cxxFLA/formResponse" method="POST">
+            <script>var formSubmitted = false;</script>
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(formSubmitted) { alert('Terima kasih bossku! Aspirasi berhasil dikirim.'); window.location.reload(); }"></iframe>
+
+            <form action="https://docs.google.com/forms/d/e/1FAIpQLSd705yILHcrnKGcQrSsgJwaoZoEt9Vh7zHEZjDxaA30cxxFLA/formResponse" method="POST" target="hidden_iframe" onsubmit="formSubmitted=true;">
                 
                 <div class="form-row">
                     <div class="form-group">
