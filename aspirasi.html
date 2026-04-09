@@ -62,40 +62,41 @@
         </div>
 
         <div class="form-card">
-            <form action="#" method="POST">
-                
+            <script>var submitted = false;</script>
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { alert('Terima kasih! Aspirasi Anda berhasil dikirim.'); window.location.reload(); }"></iframe>
+
+            <form action="https://docs.google.com/forms/d/e/1FAIpQLSd705yILHcrnKGcQrSsgJwaoZoEt9Vh7zHEZjDxaA30cxxFLA/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
+
                 <div class="form-row">
                     <div class="form-group">
                         <label for="nama"><i class="fas fa-user"></i> Nama Lengkap</label>
-                        <input type="text" id="nama" placeholder="Masukkan nama Anda..." required>
+                        <input type="text" id="nama" name="entry.1020337199" placeholder="Masukkan nama Anda..." required>
                     </div>
                     <div class="form-group">
                         <label for="wa"><i class="fab fa-whatsapp"></i> No. WhatsApp</label>
-                        <input type="tel" id="wa" placeholder="08xx-xxxx-xxxx" required>
+                        <input type="text" id="wa" name="entry.1484782853" placeholder="08xx-xxxx-xxxx" required>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="topik"><i class="fas fa-list-ul"></i> Topik Aspirasi</label>
-                    <select id="topik" required>
+                    <select id="topik" name="entry.1923707577" required>
                         <option value="" disabled selected>Pilih Topik Pembahasan...</option>
-                        <option value="infrastruktur">Infrastruktur & Fasilitas Umum</option>
-                        <option value="pendidikan">Pendidikan & Kesehatan</option>
-                        <option value="umkm">Ekonomi Kreatif & UMKM</option>
-                        <option value="lingkungan">Kebersihan & Lingkungan</option>
-                        <option value="lainnya">Lainnya</option>
+                        <option value="Infrastruktur & Fasilitas Umum">Infrastruktur & Fasilitas Umum</option>
+                        <option value="Pendidikan & Kesehatan">Pendidikan & Kesehatan</option>
+                        <option value="Ekonomi Kreatif & UMKM">Ekonomi Kreatif & UMKM</option>
+                        <option value="Kebersihan & Lingkungan">Kebersihan & Lingkungan</option>
+                        <option value="Lainnya">Lainnya</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="pesan"><i class="fas fa-comment-dots"></i> Isi Aspirasi</label>
-                    <textarea id="pesan" rows="5" placeholder="Ceritakan detail aspirasi, masukan, atau keluhan Anda di sini..." required></textarea>
+                    <textarea id="pesan" name="entry.1428097906" rows="5" placeholder="Ceritakan detail aspirasi, masukan, atau keluhan Anda di sini..." required></textarea>
                 </div>
-
                 <button type="submit" class="btn-submit-modern">
                     <i class="fas fa-paper-plane"></i> Kirim Aspirasi Sekarang
                 </button>
-
             </form>
         </div>
 

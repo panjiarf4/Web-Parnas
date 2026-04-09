@@ -1497,9 +1497,11 @@ nav a:hover {
 /* --- CSS UNTUK HALAMAN DETAIL BERITA --- */
 /* ========================================= */
 .detail-berita-container {
-    max-width: 800px; /* Sengaja dibatasi lebarnya biar mata nggak capek baca dari ujung ke ujung */
-    margin: 50px auto; /* Bikin posisinya persis di tengah layar */
-    padding: 0 20px;
+    max-width: 100%;
+    margin: 50px 0;
+    padding-left: 40px; /* Atur angka ini biar lurus persis sama logo Parnas Center */
+    padding-right: 40px;
+    box-sizing: border-box;
 }
 /* Tombol Kembali */
 .btn-kembali {
@@ -1519,7 +1521,6 @@ nav a:hover {
     margin-right: 8px;
     font-size: 20px;
 }
-
 /* Judul Artikel */
 .judul-berita {
     color: #1B5E20; /* Hijau Parnas */
@@ -1528,7 +1529,6 @@ nav a:hover {
     margin-bottom: 15px;
     font-weight: 700;
 }
-
 /* Tanggal Publikasi */
 .tanggal-berita {
     color: #777777;
@@ -1537,7 +1537,6 @@ nav a:hover {
     border-bottom: 1px solid #e0e0e0; /* Garis tipis pembatas */
     padding-bottom: 15px;
 }
-
 /* Foto Utama */
 .foto-berita-utama {
     width: 100%;
@@ -1546,7 +1545,6 @@ nav a:hover {
     margin-bottom: 35px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Bayangan halus */
 }
-
 /* Teks Paragraf Berita */
 .isi-berita p {
     font-size: 18px;
@@ -1576,9 +1574,13 @@ nav a:hover {
     padding: 40px 20px 60px 20px; /* Padding atas lebih besar biar nggak ketutupan navbar sticky */
     background-color: #f9f9f9;
 }
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
+.berita-container {
+    max-width: 100%;
+    margin: 50px 0;
+    padding-left: 40px; /* Samakan angkanya dengan halaman detail tadi biar sejajar persis */
+    padding-right: 40px;
+    box-sizing: border-box;
+    text-align: left; /* Ini kuncinya biar teksnya nggak rata tengah lagi */
 }
 .judul-utama {
     text-align: center;
@@ -1591,6 +1593,13 @@ nav a:hover {
     color: #666;
     margin-bottom: 50px;
 }
+@media (max-width: 768px) {
+    .berita-container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
 
 /* --- KODE UNTUK KARTU BERITA --- */
 .berita-grid {
